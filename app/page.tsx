@@ -20,7 +20,7 @@ export default function Home() {
 					</div>
 				);
 			})}
-			<footer className="w-full py-20 border-t border-slate-200 dark:border-slate-800 mt-20">
+			<footer className="w-full py-10 border-t border-slate-200 dark:border-slate-800 mt-10">
 				<div className="max-w-4xl mx-auto text-center px-4">
 					{/* <h2 className="font-mono text-3xl font-bold tracking-tighter uppercase mb-4">
 						Terminal <span className="text-primary">_</span>{' '}
