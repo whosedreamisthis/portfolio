@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Providers from '@/components/Providers';
 import TopNav from '@/components/TopNav';
+import Background from '@/components/Background';
 
 export const metadata: Metadata = {
 	title: 'Portfolio',
@@ -31,8 +32,11 @@ export default function RootLayout({
 			</head>
 			<body>
 				<Providers>
-					<TopNav />
-					{children}
+					<Background />
+					<div className="relative z-10">
+						<TopNav />
+						<main>{children}</main>
+					</div>
 				</Providers>
 			</body>
 		</html>
