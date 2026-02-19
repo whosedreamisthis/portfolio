@@ -124,3 +124,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+.show-dark-only { display: none; }
+
+/* If the root has the .dark class, swap them */
+.dark .show-dark-only { display: block; }
+.dark .show-light-only { display: none; }

@@ -16,7 +16,8 @@ export default function ThemeButton({ className }: ThemeButtonProps) {
 			className={`flex ${className} hover:bg-gray-700 dark:text-black dark:bg-white  dark:hover:bg-gray-300`}
 			onClick={toggleTheme}
 		>
-			{theme === 'light' ? <Moon /> : <Sun />}
+			<Moon className="dark:hidden block h-5 w-5" />
+			<Sun className="hidden dark:block h-5 w-5" />
 		</Button>
 	);
 }

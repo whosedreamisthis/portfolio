@@ -49,10 +49,23 @@ export default function ThemeProvider({
 
 export const useTheme = () => {
 	const context = useContext(ThemeContext);
+	const [hydrated, setHydrated] = useState(false);
+
+	useEffect(() => {
+		setHydrated(true);
+	}, []);
 
 	if (!context) {
 		throw new Error('useTheme requires ThemeProvider');
 	}
 
-	return context;
+	if (!hydrated) {
+		return {
+			theme: 'light',
+			toggleTheme: () => {},
+			isHydrated: false,
+		};
+	}
+
+	return { ...context, isHydrated: true };
 };

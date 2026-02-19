@@ -1,6 +1,8 @@
 import React from 'react';
-
-const TechnicalBackground = () => {
+interface Props {
+	className?: string;
+}
+const TechnicalBackground = ({ className }: Props) => {
 	return (
 		<div
 			style={{
@@ -10,6 +12,7 @@ const TechnicalBackground = () => {
 				backgroundColor: '#0F172A', // Deep Navy
 				overflow: 'hidden',
 			}}
+			className={`${className}`}
 		>
 			<style>
 				{`

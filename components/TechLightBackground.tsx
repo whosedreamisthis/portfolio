@@ -1,6 +1,8 @@
 import React from 'react';
-
-const TechLightBackground = () => {
+interface Props {
+	className?: string;
+}
+const TechLightBackground = ({ className }: Props) => {
 	return (
 		<div
 			style={{
@@ -10,6 +12,7 @@ const TechLightBackground = () => {
 				backgroundColor: '#F8FAFC', // Soft White/Slate background
 				overflow: 'hidden',
 			}}
+			className={`${className}`}
 		>
 			<style>
 				{`
