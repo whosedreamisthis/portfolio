@@ -30,7 +30,7 @@ export default function RootLayout({
 			<head>
 				<script dangerouslySetInnerHTML={{ __html: themeCode }} />
 			</head>
-			<body>
+			<body className="select-none">
 				<Providers>
 					<Background />
 					<div className="relative z-10">

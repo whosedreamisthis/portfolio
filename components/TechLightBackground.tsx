@@ -1,7 +1,9 @@
 import React from 'react';
+
 interface Props {
 	className?: string;
 }
+
 const TechLightBackground = ({ className }: Props) => {
 	return (
 		<div
@@ -9,7 +11,7 @@ const TechLightBackground = ({ className }: Props) => {
 				position: 'fixed',
 				inset: 0,
 				zIndex: -1,
-				backgroundColor: '#F8FAFC', // Soft White/Slate background
+				backgroundColor: '#f1f5f9', // "Vellum" paper white
 				overflow: 'hidden',
 			}}
 			className={`${className}`}
@@ -21,20 +23,20 @@ const TechLightBackground = ({ className }: Props) => {
             100% { transform: translateY(40px); }
           }
           @keyframes draw-in {
-            0% { stroke-dashoffset: 1000; opacity: 0; }
-            100% { stroke-dashoffset: 0; opacity: 0.4; }
+            0% { stroke-dashoffset: 1000; opacity: 0.1; }
+            100% { stroke-dashoffset: 0; opacity: 0.5; }
           }
           .grid-light {
-            animation: grid-scroll 6s linear infinite;
+            animation: grid-scroll 10s linear infinite;
           }
           .sketch-line-light {
             stroke-dasharray: 1000;
-            animation: draw-in 8s infinite alternate ease-in-out;
+            animation: draw-in 10s infinite alternate ease-in-out;
           }
         `}
 			</style>
 
-			{/* 1. Subtle Engineering Grid (Soft Blue/Grey) */}
+			{/* 1. Subtle Engineering Grid (Blueprint Blue) */}
 			<svg width="100%" height="100%" className="grid-light">
 				<defs>
 					<pattern
@@ -43,11 +45,10 @@ const TechLightBackground = ({ className }: Props) => {
 						height="40"
 						patternUnits="userSpaceOnUse"
 					>
-						{/* The "Graph Paper" look */}
 						<path
 							d="M 40 0 L 0 0 0 40"
 							fill="none"
-							stroke="#E2E8F0"
+							stroke="#cbd5e1"
 							strokeWidth="1"
 						/>
 					</pattern>
@@ -63,11 +64,10 @@ const TechLightBackground = ({ className }: Props) => {
 				preserveAspectRatio="xMidYMax slice"
 				style={{ position: 'absolute', top: 0, left: 0 }}
 			>
-				{/* Top Right Corner - Technical Compass/Circle */}
 				<g
 					transform="translate(620, 80)"
 					fill="none"
-					stroke="#94A3B8"
+					stroke="#64748b"
 					strokeWidth="1"
 				>
 					<circle
@@ -80,32 +80,6 @@ const TechLightBackground = ({ className }: Props) => {
 						d="M 10 50 L 90 50 M 50 10 L 50 90"
 						className="sketch-line-light"
 						strokeDasharray="2,2"
-					/>
-					<path
-						d="M 0 0 L 100 100"
-						className="sketch-line-light"
-						opacity="0.2"
-					/>
-				</g>
-
-				{/* Bottom Left Corner - Coordinate System */}
-				<g
-					transform="translate(80, 650)"
-					fill="none"
-					stroke="#94A3B8"
-					strokeWidth="1"
-				>
-					<path
-						d="M 0 100 L 0 0 L 100 0"
-						className="sketch-line-light"
-					/>
-					<path
-						d="M 0 20 L 5 20 M 0 40 L 5 40 M 0 60 L 5 60 M 0 80 L 5 80"
-						stroke="#CBD5E1"
-					/>
-					<path
-						d="M 20 0 L 20 5 M 40 0 L 40 5 M 60 0 L 60 5 M 80 0 L 80 5"
-						stroke="#CBD5E1"
 					/>
 				</g>
 			</svg>
