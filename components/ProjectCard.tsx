@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github } from 'lucide-react';
-
+import Image from 'next/image';
 interface ProjectProps {
 	title: string;
 	description: string;
@@ -26,22 +26,7 @@ export function ProjectCard({
 	github,
 }: ProjectProps) {
 	return (
-		<Card
-			className="
-      /* Background and Blur */
-      bg-white/70 dark:bg-slate-900/80 
-      backdrop-blur-xl 
-
-      /* Visible border: Light mode (slate-200) | Dark mode (slate-700) */
-      border-2 border-slate-200 dark:border-slate-700 
-      hover:border-primary/50 transition-all duration-600 ease-in-out
-      
-      /* Scale animation */
-      hover:scale-[1.01] active:scale-[0.99]
-      
-      m-6 shadow-lg flex flex-col justify-between
-    "
-		>
+		<Card className="bg-white/70 dark:bg-slate-900/80 backdrop-blur-xl border-2 border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-600 ease-in-out hover:scale-[1.01] active:scale-[0.99] m-6 shadow-lg flex flex-col justify-between overflow-hidden">
 			<div>
 				<CardHeader>
 					<CardTitle className="font-mono tracking-tighter uppercase flex justify-between items-center">
@@ -56,42 +41,74 @@ export function ProjectCard({
 				</CardHeader>
 
 				<CardContent>
-					<div className="flex flex-wrap gap-2">
-						{tags.map((tag) => (
-							<span
-								key={tag}
-								className="px-2 py-1 text-[10px] font-mono rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
-							>
-								{tag}
-							</span>
-						))}
+					{/* SIDE-BY-SIDE CONTAINER */}
+					<div className="flex gap-4 items-start">
+						{/* SMALL VERTICAL IMAGE (9:16 Ratio) */}
+						<div className="relative w-24 shrink-0 aspect-[9/16] overflow-hidden rounded-md border border-slate-200 dark:border-slate-800 shadow-sm">
+							<Image
+								alt="project image"
+								src="/recipeManager.png"
+								fill
+								sizes="100px"
+								className="object-cover grayscale hover:grayscale-0 transition-all duration-300"
+							/>
+						</div>
+
+						{/* TAGS SECTION (Next to image) */}
+						<div className="flex flex-col gap-2">
+							<p className="text-[11px] font-mono text-slate-400 uppercase tracking-widest">
+								Tech Stack:
+							</p>
+							<div className="flex flex-wrap gap-2">
+								{tags.map((tag) => (
+									<span
+										key={tag}
+										className="px-2 py-1 text-[10px] font-mono rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+									>
+										{tag}
+									</span>
+								))}
+							</div>
+						</div>
 					</div>
 				</CardContent>
 			</div>
 
-			{/* RESTORED BUTTONS SECTION */}
 			<CardFooter className="flex gap-3 pt-4 border-t border-slate-100 dark:border-slate-800/50">
-				<Button
-					variant="outline"
-					size="sm"
-					className="flex-1 font-mono text-xs uppercase border-slate-200 dark:border-slate-700 hover:bg-primary/10"
-					asChild
-				>
-					<a href={github} target="_blank" rel="noopener noreferrer">
-						<Github className="mr-2 h-3 w-3" />
-						Source
-					</a>
-				</Button>
-				<Button
-					size="sm"
-					className="flex-1 font-mono text-xs uppercase bg-primary hover:bg-primary/90"
-					asChild
-				>
-					<a href={link} target="_blank" rel="noopener noreferrer">
-						<ExternalLink className="mr-2 h-3 w-3" />
-						Live Demo
-					</a>
-				</Button>
+				<div className="flex gap-3 justify-between">
+					<Button
+						variant="outline"
+						size="sm"
+						className="flex-1 font-mono text-xs uppercase"
+						asChild
+					>
+						<a
+							href={github}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<Github className="mr-2 h-3 w-3" /> Source
+						</a>
+					</Button>
+					<Button
+						size="sm"
+						className="flex-1 font-mono text-xs uppercase bg-primary hover:bg-primary/90"
+						asChild
+					>
+						{/* Absolute URL fix applied here */}
+						<a
+							href={
+								link.startsWith('http')
+									? link
+									: `https://${link}`
+							}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<ExternalLink className="mr-2 h-3 w-3" /> Live Demo
+						</a>
+					</Button>
+				</div>
 			</CardFooter>
 		</Card>
 	);

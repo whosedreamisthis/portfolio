@@ -10,13 +10,13 @@ export interface Project {
 
 export const projects: Project[] = [
 	{
-		id: 'project-neural-v2',
-		title: 'NEURAL_INTERFACE_V2',
+		id: 'recipe-manager-id',
+		title: 'Recipe Vault.SYS',
 		description:
-			'A high-performance data visualization engine that maps real-time telemetry into a 3D interactive grid using WebGL and custom shaders.',
-		tags: ['Three.js', 'GLSL', 'React'],
-		github: 'https://github.com/yourusername/project-one',
-		link: 'https://project-one-demo.com',
+			'A high-performance, full-stack recipe management dashboard featuring real-time state synchronization, secure user authentication via Clerk, and a streamlined, multi-step creation flow powered by Next.js and Prisma.',
+		tags: ['Next.js 15', 'Prisma', 'TanStack Query', 'Zustand'],
+		github: 'https://github.com/whosedreamisthis/recipe-manager',
+		link: 'https://recipe-manager-neon-one.vercel.app',
 	},
 	{
 		id: 'project-dist-altius',
