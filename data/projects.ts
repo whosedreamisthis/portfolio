@@ -18,7 +18,7 @@ export const projects: Project[] = [
 		tags: ['Next.js 15', 'Prisma', 'TanStack Query', 'Zustand'],
 		github: 'https://github.com/whosedreamisthis/recipe-manager',
 		link: 'https://recipe-manager-neon-one.vercel.app',
-		image: '/recipeManager.png',
+		image: '/recipeManager.jpg',
 	},
 	{
 		id: 'project-dist-altius',
@@ -28,12 +28,12 @@ export const projects: Project[] = [
 		tags: ['Golang', 'Docker', 'gRPC'],
 		github: 'https://github.com/yourusername/project-two',
 		link: 'https://project-two-demo.com',
-		image: '/recipeManager.png',
+		image: '/recipeManager.jpg',
 	},
 	{
 		id: 'project-cryptic-os',
 		title: 'CRYPTIC_DASHBOARD_OS',
-		image: '/recipeManager.png',
+		image: '/recipeManager.jpg',
 		description:
 			'An accessible, terminal-styled component library focused on low-bandwidth environments and high-density information display.',
 		tags: ['TypeScript', 'Tailwind', 'Radix UI'],
