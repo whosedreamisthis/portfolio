@@ -28,66 +28,60 @@ export function ProjectCard({
 	image,
 }: ProjectProps) {
 	return (
-		<Card className="bg-white/70 dark:bg-slate-900/80 backdrop-blur-xl border-2 border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-600 ease-in-out hover:scale-[1.01] active:scale-[0.99] m-6 shadow-lg overflow-hidden flex flex-col">
-			<div className="flex flex-col md:flex-row items-stretch h-full gap-3">
-				{/* IMAGE SECTION */}
-				<div
-					className="
-          relative 
-          w-full md:w-48 shrink-0 
-          aspect-[16/9] md:aspect-auto 
-          /* Top corners rounded on mobile, Right corners rounded on desktop */
-          rounded-t-xl md:rounded-t-none md:rounded-r-xl 
-          overflow-hidden
-          border-b md:border-b-0 md:border-l border-slate-200 dark:border-slate-800 
-          order-first md:order-last
-        "
-				>
+		<div className="bg-white/70 dark:bg-slate-900/80 backdrop-blur-xl border-2 border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-600 ease-in-out hover:scale-[1.01] active:scale-[0.99] m-6 shadow-lg overflow-hidden flex flex-col rounded-xl">
+			{/* THE WRAPPER: 
+         - No padding on this div ensures the image can touch the edges.
+         - flex-col on mobile (Image top)
+         - md:flex-row-reverse on desktop (Image right)
+      */}
+			<div className="flex flex-col md:flex-row-reverse items-stretch">
+				{/* IMAGE SECTION - Zero margins, zero padding */}
+				<div className="relative w-full md:w-1/3 shrink-0 aspect-[16/9] md:aspect-auto border-b md:border-b-0 md:border-l border-slate-200 dark:border-slate-800">
 					<Image
 						alt="project image"
 						src={image}
 						fill
-						sizes="(max-width: 768px) 100vw, 192px"
-						className="object-cover hover:scale-103 transition-all duration-300"
+						sizes="(max-width: 768px) 100vw, 33vw"
+						className="object-cover hover:scale-105 transition-all duration-500"
+						priority
 					/>
 				</div>
 
-				{/* CONTENT SECTION */}
-				<div className="flex-1 flex flex-col justify-between">
+				{/* TEXT CONTENT SECTION */}
+				<div className="flex-1 flex flex-col justify-between p-6">
 					<div>
-						<CardHeader>
-							<CardTitle className="font-mono tracking-tighter uppercase flex justify-between items-center">
+						<div className="flex justify-between items-start mb-4 gap-4">
+							<h3 className="font-mono text-lg font-bold tracking-tighter uppercase leading-tight">
 								{title}
-								<span className="text-[10px] opacity-30 font-light">
-									[REF_ID: {title.slice(0, 3).toUpperCase()}]
-								</span>
-							</CardTitle>
-						</CardHeader>
+							</h3>
+							<span className="text-[10px] opacity-30 font-light font-mono shrink-0 mt-1">
+								[REF_ID: {title.slice(0, 3).toUpperCase()}]
+							</span>
+						</div>
 
-						<CardContent>
-							<CardDescription className="text-slate-600 dark:text-slate-400 select-text mb-6">
-								{description}
-							</CardDescription>
+						<p className="text-sm text-slate-600 dark:text-slate-400 select-text mb-6">
+							{description}
+						</p>
 
-							<div className="flex flex-col gap-2">
-								<p className="text-[11px] font-mono text-slate-400 uppercase tracking-widest">
-									Tech Stack:
-								</p>
-								<div className="flex flex-wrap gap-2">
-									{tags.map((tag) => (
-										<span
-											key={tag}
-											className="px-2 py-1 text-[10px] font-mono rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
-										>
-											{tag}
-										</span>
-									))}
-								</div>
+						<div className="flex flex-col gap-2">
+							<p className="text-[11px] font-mono text-slate-400 uppercase tracking-widest">
+								Tech Stack:
+							</p>
+							<div className="flex flex-wrap gap-2">
+								{tags.map((tag) => (
+									<span
+										key={tag}
+										className="px-2 py-1 text-[10px] font-mono rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+									>
+										{tag}
+									</span>
+								))}
 							</div>
-						</CardContent>
+						</div>
 					</div>
 
-					<CardFooter className="flex gap-3 pt-4 border-t border-slate-100 dark:border-slate-800/50 w-full mt-auto">
+					{/* BUTTONS SECTION */}
+					<div className="flex gap-3 pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/50 w-full">
 						<Button
 							variant="outline"
 							size="sm"
@@ -119,9 +113,9 @@ export function ProjectCard({
 								<ExternalLink className="mr-2 h-3 w-3" /> Live
 							</a>
 						</Button>
-					</CardFooter>
+					</div>
 				</div>
 			</div>
-		</Card>
+		</div>
 	);
 }
