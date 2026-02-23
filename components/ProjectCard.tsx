@@ -16,6 +16,7 @@ interface ProjectProps {
 	tags: string[];
 	link: string;
 	github: string;
+	image: string;
 }
 
 export function ProjectCard({
@@ -24,6 +25,7 @@ export function ProjectCard({
 	tags,
 	link,
 	github,
+	image,
 }: ProjectProps) {
 	return (
 		<Card className="bg-white/70 dark:bg-slate-900/80 backdrop-blur-xl border-2 border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-600 ease-in-out hover:scale-[1.01] active:scale-[0.99] m-6 shadow-lg flex flex-col justify-between overflow-hidden">
@@ -47,7 +49,7 @@ export function ProjectCard({
 						<div className="relative w-24 shrink-0 aspect-[9/16] overflow-hidden rounded-md border border-slate-200 dark:border-slate-800 shadow-sm">
 							<Image
 								alt="project image"
-								src="/recipeManager.png"
+								src={image}
 								fill
 								sizes="100px"
 								className="object-cover grayscale hover:grayscale-0 transition-all duration-300"

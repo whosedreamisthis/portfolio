@@ -16,6 +16,7 @@ export default function Home() {
 							tags={project.tags}
 							github={project.github}
 							link={project.link}
+							image={project.image}
 						/>
 					</div>
 				);
