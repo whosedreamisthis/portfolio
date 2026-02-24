@@ -3,6 +3,7 @@ import { ProjectCard } from '@/components/ProjectCard';
 import { Button } from '@/components/ui/button';
 import { projects } from '@/data/projects';
 import { Linkedin } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
 	return (
@@ -31,19 +32,19 @@ export default function Home() {
 						AVAILABLE FOR TECHNICAL COLLABORATION // 2026
 					</p>
 
-					<div className="flex flex-wrap justify-center gap-4">
+					<div className="flex flex-row justify-center gap-4">
 						<Button
 							variant="outline"
 							className="border-2 border-slate-200 dark:border-slate-700 hover:border-blue-500"
 							asChild
 						>
-							<a
+							<Link
 								href="https://linkedin.com/in/danash"
 								target="_blank"
 							>
 								<Linkedin className="mr-2 h-4 w-4 text-blue-500" />
 								LinkedIn Profile
-							</a>
+							</Link>
 						</Button>
 
 						{/* Email button for convenience since select-none is active */}

@@ -21,14 +21,14 @@ export const projects: Project[] = [
 		image: '/recipeManager.jpg',
 	},
 	{
-		id: 'project-dist-altius',
-		title: 'DISTRIBUTED_CORE_ALTIUS',
+		id: 'daily-digest-portal',
+		title: 'Daily Digest',
 		description:
-			'A cloud-native microservices architecture designed for sub-50ms latency in global state synchronization across edge nodes.',
-		tags: ['Golang', 'Docker', 'gRPC'],
-		github: 'https://github.com/yourusername/project-two',
+			'A high-performance news aggregator featuring dynamic category routing, localized search with history management, and native Web Share integration.',
+		tags: ['Next.js 15', 'TypeScript', 'Tailwind CSS', 'Lucide Icons'],
+		github: 'https://github.com/whosedreamisthis/daily-digest',
 		link: 'https://project-two-demo.com',
-		image: '/recipeManager.jpg',
+		image: '/dailyDigest.jpg',
 	},
 	{
 		id: 'project-cryptic-os',
