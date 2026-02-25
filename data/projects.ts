@@ -17,7 +17,7 @@ export const projects: Project[] = [
 			'A high-performance, full-stack recipe management dashboard featuring real-time state synchronization, secure user authentication via Clerk, and a streamlined, multi-step creation flow powered by Next.js and Prisma.',
 		tags: ['Next.js 15', 'Prisma', 'TanStack Query', 'Zustand'],
 		github: 'https://github.com/whosedreamisthis/recipe-manager',
-		link: 'https://recipe-manager-neon-one.vercel.app',
+		link: 'https://whosedreamisthis-recipe-manager.vercel.app',
 		image: '/recipeManager.jpg',
 	},
 	{
