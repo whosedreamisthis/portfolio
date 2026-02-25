@@ -27,7 +27,7 @@ export const projects: Project[] = [
 			'A high-performance news aggregator featuring dynamic category routing, localized search with history management, and native Web Share integration.',
 		tags: ['Next.js 15', 'TypeScript', 'Tailwind CSS', 'Lucide Icons'],
 		github: 'https://github.com/whosedreamisthis/daily-digest',
-		link: 'https://daily-digest-puce.vercel.app/',
+		link: 'https://whosedreamisthis-daily-digest.vercel.app',
 		image: '/dailyDigest.jpg',
 	},
 	{
