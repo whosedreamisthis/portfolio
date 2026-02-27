@@ -31,13 +31,21 @@ export const projects: Project[] = [
 		image: '/dailyDigest.jpg',
 	},
 	{
-		id: 'project-cryptic-os',
-		title: 'CRYPTIC_DASHBOARD_OS',
-		image: '/recipeManager.jpg',
+		id: 'project-spark',
+		title: 'Spark',
+		image: '/spark.jpg',
 		description:
-			'An accessible, terminal-styled component library focused on low-bandwidth environments and high-density information display.',
-		tags: ['TypeScript', 'Tailwind', 'Radix UI'],
-		github: 'https://github.com/yourusername/project-three',
-		link: 'https://project-three-demo.com',
+			'A modern dating app concept designed to ignite meaningful human connection.',
+		tags: [
+			'Next.js',
+			'TypeScript',
+			'Tailwind CSS',
+			'Prisma',
+			'Lucide Icons',
+			'Cloudinary',
+			'Pusher',
+		],
+		github: 'https://github.com/whosedreamisthis/spark',
+		link: 'https://whosedreamisthis-spark.vercel.app',
 	},
 ];
