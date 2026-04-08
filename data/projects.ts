@@ -18,7 +18,7 @@ export const projects: Project[] = [
 		tags: ['Next.js 15', 'Prisma', 'TanStack Query', 'Zustand'],
 		github: 'https://github.com/whosedreamisthis/recipe-manager',
 		link: 'https://whosedreamisthis-recipe-manager.vercel.app',
-		image: '/recipeManager.jpg',
+		image: '/recipes.png',
 	},
 	{
 		id: 'daily-digest-portal',
@@ -28,12 +28,12 @@ export const projects: Project[] = [
 		tags: ['Next.js 15', 'TypeScript', 'Tailwind CSS', 'Lucide Icons'],
 		github: 'https://github.com/whosedreamisthis/daily-digest',
 		link: 'https://whosedreamisthis-daily-digest.vercel.app',
-		image: '/dailyDigest.jpg',
+		image: '/daily.png',
 	},
 	{
 		id: 'project-spark',
 		title: 'Spark',
-		image: '/spark.jpg',
+		image: '/spark.png',
 		description:
 			'A modern dating app concept designed to ignite meaningful human connection.',
 		tags: [
@@ -56,6 +56,6 @@ export const projects: Project[] = [
 		tags: ['React 19', 'TypeScript', 'Tailwind CSS', 'Design Patterns'],
 		github: 'https://github.com/whosedreamisthis/design-patterns',
 		link: 'https://whosedreamisthis.github.io/design-patterns/',
-		image: '/design-patterns.jpg', // Ensure you add a screenshot to your public folder
+		image: '/patterns.png', // Ensure you add a screenshot to your public folder
 	},
 ];
