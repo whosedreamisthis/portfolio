@@ -48,4 +48,14 @@ export const projects: Project[] = [
 		github: 'https://github.com/whosedreamisthis/spark',
 		link: 'https://whosedreamisthis-spark.vercel.app',
 	},
+	{
+		id: 'pattern-lab-core',
+		title: 'Pattern Lab',
+		description:
+			'A technical exploration of advanced React architecture. This laboratory showcases implementation of Compound Components, Higher-Order Components (HOC), and Render Props to build highly reusable, accessible, and scalable UI systems.',
+		tags: ['React 19', 'TypeScript', 'Tailwind CSS', 'Design Patterns'],
+		github: 'https://github.com/whosedreamisthis/design-patterns',
+		link: 'https://whosedreamisthis.github.io/design-patterns/',
+		image: '/design-patterns.jpg', // Ensure you add a screenshot to your public folder
+	},
 ];
