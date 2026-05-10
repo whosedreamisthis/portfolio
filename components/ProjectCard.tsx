@@ -28,7 +28,7 @@ export function ProjectCard({
 	image,
 }: ProjectProps) {
 	return (
-		<div className="bg-white/70 dark:bg-slate-900/80 backdrop-blur-xl border-2 border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-600 ease-in-out hover:scale-[1.01] active:scale-[0.99] m-6 shadow-lg overflow-hidden flex flex-col rounded-xl">
+		<div className="bg-white/70 dark:bg-slate-900/80 backdrop-blur-xl border-2 border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-600 ease-in-out m-6 shadow-lg overflow-hidden flex flex-col rounded-xl">
 			{/* THE WRAPPER: 
          - No padding on this div ensures the image can touch the edges.
          - flex-col on mobile (Image top)

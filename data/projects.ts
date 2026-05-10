@@ -30,32 +30,32 @@ export const projects: Project[] = [
 		link: 'https://whosedreamisthis-daily-digest.vercel.app',
 		image: '/daily.png',
 	},
+	// {
+	// 	id: 'project-spark',
+	// 	title: 'Spark',
+	// 	image: '/spark.png',
+	// 	description:
+	// 		'A modern dating app concept designed to ignite meaningful human connection.',
+	// 	tags: [
+	// 		'Next.js',
+	// 		'TypeScript',
+	// 		'Tailwind CSS',
+	// 		'Prisma',
+	// 		'Lucide Icons',
+	// 		'Cloudinary',
+	// 		'Pusher',
+	// 	],
+	// 	github: 'https://github.com/whosedreamisthis/spark',
+	// 	link: 'https://whosedreamisthis-spark.vercel.app',
+	// },
 	{
-		id: 'project-spark',
-		title: 'Spark',
-		image: '/spark.png',
+		id: 'ai-assistant',
+		title: 'AI Coding Assistant',
 		description:
-			'A modern dating app concept designed to ignite meaningful human connection.',
-		tags: [
-			'Next.js',
-			'TypeScript',
-			'Tailwind CSS',
-			'Prisma',
-			'Lucide Icons',
-			'Cloudinary',
-			'Pusher',
-		],
-		github: 'https://github.com/whosedreamisthis/spark',
-		link: 'https://whosedreamisthis-spark.vercel.app',
-	},
-	{
-		id: 'pattern-lab-core',
-		title: 'Pattern Lab',
-		description:
-			'A technical exploration of advanced React architecture. This laboratory showcases implementation of Compound Components, Higher-Order Components (HOC), and Render Props to build highly reusable, accessible, and scalable UI systems.',
-		tags: ['React 19', 'TypeScript', 'Tailwind CSS', 'Design Patterns'],
-		github: 'https://github.com/whosedreamisthis/design-patterns',
-		link: 'https://whosedreamisthis.github.io/design-patterns/',
-		image: '/patterns.png', // Ensure you add a screenshot to your public folder
+			'An AI coding asssitant that explains, generates and debugs code.',
+		tags: ['React 19', 'TypeScript', 'NextJS 16', "Gemini API"],
+		github: 'https://github.com/whosedreamisthis/ai-coding-assistant',
+		link: 'https://ai-coding-assistant-six.vercel.app',
+		image: '/ai-assistant.png',
 	},
 ];
