@@ -85,7 +85,7 @@ export function ProjectCard({
 						<Button
 							variant="outline"
 							size="sm"
-							className="flex-1 font-mono text-xs uppercase"
+							className="transition-all hover:-translate-y-1 flex-1 font-mono text-xs uppercase"
 							asChild
 						>
 							<a
@@ -98,7 +98,7 @@ export function ProjectCard({
 						</Button>
 						<Button
 							size="sm"
-							className="flex-1 font-mono text-xs uppercase bg-primary hover:bg-primary/90"
+							className="transition-all hover:-translate-y-1 flex-1 font-mono text-xs uppercase bg-primary hover:bg-primary/90"
 							asChild
 						>
 							<a
