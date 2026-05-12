@@ -1,16 +1,34 @@
+'use client'
 import { ContactButton } from '@/components/ContactButton';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Button } from '@/components/ui/button';
 import { projects } from '@/data/projects';
 import { Linkedin } from 'lucide-react';
+import {useEffect} from 'react'
 import Link from 'next/link';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
+	useEffect(() => {
+		// We only want to run this once on the client
+		AOS.init({
+			duration: 1000,
+			easing: "ease",
+			once: true,
+			anchorPlacement: "top-bottom",
+		});
+
+		// It's often helpful to refresh AOS after initialization
+		// to ensure it catches all elements
+		AOS.refresh();
+	}, []);
+
 	return (
 		<div>
-			{projects.map((project) => {
+			{projects.map((project,index) => {
 				return (
-					<div key={project.id} className="m-5">
+					<div data-aos={`fade-${index % 2 === 0 ? 'left' : 'right'}`} data-aos-delay={index*100} key={project.id} className="m-5">
 						<ProjectCard
 							title={project.title}
 							description={project.description}
