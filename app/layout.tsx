@@ -6,7 +6,7 @@ import TopNav from '@/components/TopNav';
 import Background from '@/components/Background';
 
 export const metadata: Metadata = {
-	title: 'Portfolio',
+	title: "Dana Sharon — Developer Portfolio",
 	description: "Dana Sharon's portfolio",
 };
 

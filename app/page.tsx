@@ -1,35 +1,31 @@
-'use client'
 import { ContactButton } from '@/components/ContactButton';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Button } from '@/components/ui/button';
 import { projects } from '@/data/projects';
 import { Linkedin } from 'lucide-react';
-import {useEffect} from 'react'
 import Link from 'next/link';
-import AOS from "aos";
-import "aos/dist/aos.css";
+import Hero from '@/components/Hero';
+import Marquee from '@/components/Marquee';
+import Reveal from '@/components/Reveal';
+import CursorGlow from '@/components/CursorGlow';
 
 export default function Home() {
-	useEffect(() => {
-		// We only want to run this once on the client
-		AOS.init({
-			duration: 1000,
-			easing: "ease",
-			once: true,
-			anchorPlacement: "top-bottom",
-		});
-
-		// It's often helpful to refresh AOS after initialization
-		// to ensure it catches all elements
-		AOS.refresh();
-	}, []);
-
 	return (
 		<div>
-			{projects.map((project,index) => {
-				return (
-					<div data-aos={`fade-${index % 2 === 0 ? 'left' : 'right'}`} data-aos-delay={index*100} key={project.id} className="m-5">
+			<CursorGlow />
+			<Hero />
+			<Marquee />
+			<h2
+				id="work"
+				className="scroll-mt-8 px-6 text-center font-mono text-3xl font-black uppercase tracking-tighter md:text-5xl"
+			>
+				Selected <span className="text-blue-500">Work</span>
+			</h2>
+			<div className="mx-auto mt-16 flex max-w-5xl flex-col gap-24 px-5 pt-6">
+				{projects.map((project, index) => (
+					<Reveal key={project.id}>
 						<ProjectCard
+							index={index}
 							title={project.title}
 							description={project.description}
 							tags={project.tags}
@@ -37,9 +33,9 @@ export default function Home() {
 							link={project.link}
 							image={project.image}
 						/>
-					</div>
-				);
-			})}
+					</Reveal>
+				))}
+			</div>
 			<footer className="w-full py-10 border-t border-slate-200 dark:border-slate-800 mt-10">
 				<div className="max-w-4xl mx-auto text-center px-4">
 					{/* <h2 className="font-mono text-3xl font-bold tracking-tighter uppercase mb-4">
