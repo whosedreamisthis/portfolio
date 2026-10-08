@@ -1,8 +1,8 @@
 # 📐 Technical Portfolio | Dana Sharon
 
-A high-performance, engineering-themed portfolio built with **Next.js 15**, **Tailwind CSS v4**, and **Framer Motion**. Featuring a custom "Blueprint" background system that reacts to system themes.
+A engineering-themed developer portfolio built with **Next.js 16**, **React 19**, and **Tailwind CSS v4**. It has an animated hero, a scrolling tech marquee, tilt-effect project cards, and a blueprint-style background that follows the system theme.
 
-![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38B2AC?style=flat-square&logo=tailwind-css)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript)
 
@@ -10,23 +10,27 @@ A high-performance, engineering-themed portfolio built with **Next.js 15**, **Ta
 
 ## 🚀 Overview
 
-This portfolio is designed to mimic a technical drafting board. It utilizes SVG-based architectural backgrounds that transition seamlessly between light (Vellum) and dark (Blueprint) modes without hydration flashes.
+The site mimics a technical drafting board. SVG backgrounds switch between light (Vellum) and dark (Blueprint) modes without a hydration flash.
 
 ### Key Features
 
--   **Zero-Flash Dark Mode:** Custom blocking script implementation for instant theme synchronization.
--   **Glassmorphism UI:** Backdrop-blurred cards to maintain background visibility.
--   **Dynamic Projects:** A central data-driven grid system for showcasing technical modules.
--   **Responsive Engineering:** Fully fluid layout optimized for all viewport dimensions.
+-   **Animated Hero:** Typewriter effect cycling through roles.
+-   **Tech Marquee:** Continuously scrolling strip of the tech stack.
+-   **Tilt Project Cards:** Interactive cards with a 3D tilt effect.
+-   **Cursor Glow & Scroll Reveals:** Subtle pointer glow and reveal-on-scroll animations.
+-   **Zero-Flash Dark Mode:** A blocking inline script in the layout applies the saved or system theme before first paint.
+-   **Data-Driven Projects:** Projects are rendered from a single typed array.
+-   **Responsive Layout:** Fluid across all viewport sizes.
 
 ---
 
 ## 🛠️ Tech Stack
 
--   **Framework:** [Next.js](https://nextjs.org/) (App Router)
+-   **Framework:** [Next.js](https://nextjs.org/) 16 (App Router) with React 19
+-   **Language:** TypeScript
 -   **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
--   **Components:** [Shadcn UI](https://ui.shadcn.com/) & [Lucide Icons](https://lucide.dev/)
--   **State Management:** React Context API (Theme Management)
+-   **Components:** [Shadcn UI](https://ui.shadcn.com/) (Radix) & [Lucide Icons](https://lucide.dev/)
+-   **State Management:** React Context API (theme)
 -   **Deployment:** [Vercel](https://vercel.com/)
 
 ---
@@ -34,14 +38,26 @@ This portfolio is designed to mimic a technical drafting board. It utilizes SVG-
 ## 📁 Project Structure
 
 ```text
-├── components/          # UI Components (ProjectCard, ThemeButton)
-│   ├── ui/              # Shadcn primitive components
-│   ├── Background.tsx   # Blueprint background logic
-│   └── TopNav.tsx       # Navigation & Resume download
-├── data/                # Project metadata and static strings
-├── public/              # Static assets (Resume PDF, Favicons)
-├── app/                 # Next.js App Router (Pages & Layout)
-└── globals.css          # Tailwind v4 configuration & base styles
+├── app/                     # Next.js App Router
+│   ├── layout.tsx           # Root layout, theme script, providers
+│   ├── page.tsx             # Home page
+│   ├── globals.css          # Tailwind v4 config & base styles
+│   └── icon.tsx / icon.svg  # Favicons
+├── components/
+│   ├── ui/                  # Shadcn primitives (button, card)
+│   ├── Background.tsx       # Theme-aware background switcher
+│   ├── TechnicalBackground.tsx / TechLightBackground.tsx
+│   ├── Hero.tsx             # Typewriter hero
+│   ├── Marquee.tsx          # Scrolling tech strip
+│   ├── ProjectCard.tsx      # Tilt project card
+│   ├── Reveal.tsx           # Scroll-reveal wrapper
+│   ├── CursorGlow.tsx       # Pointer glow effect
+│   ├── ContactButton.tsx
+│   ├── TopNav.tsx           # Navigation & resume download
+│   ├── ThemeButton.tsx / ThemeContext.tsx / Providers.tsx
+├── data/projects.ts         # Project metadata
+├── lib/utils.ts             # Helpers (cn)
+└── public/                  # Project images, resume PDF
 ```
 
 ---
@@ -51,7 +67,8 @@ This portfolio is designed to mimic a technical drafting board. It utilizes SVG-
 1. **Clone the repository:**
 
     ```bash
-    git clone [https://github.com/yourusername/portfolio-v3.git](https://github.com/yourusername/portfolio-v3.git)
+    git clone https://github.com/whosedreamisthis/portfolio.git
+    cd portfolio
     ```
 
 2. **Install dependencies:**
@@ -66,9 +83,16 @@ This portfolio is designed to mimic a technical drafting board. It utilizes SVG-
     npm run dev
     ```
 
-4. **Build for production:**
+4. **Build and run for production:**
+
     ```bash
     npm run build
+    npm start
+    ```
+
+5. **Lint:**
+    ```bash
+    npm run lint
     ```
 
 ---
@@ -77,15 +101,24 @@ This portfolio is designed to mimic a technical drafting board. It utilizes SVG-
 
 ### Adding Projects
 
-The project grid is data-driven. To add your own modules, modify the `data/projects.ts` file. Using unique string IDs ensures stable React reconciliation and better performance:
+Add an entry to the `projects` array in `data/projects.ts` and put its screenshot in `public/`. Use a unique string `id`:
 
 ```typescript
 {
   id: "project-unique-id",
-  title: "PROJECT_NAME",
-  description: "Brief technical documentation of the build...",
+  title: "Project Name",
+  description: "Brief description of the build...",
   tags: ["Next.js", "TypeScript", "Tailwind"],
-  github: "[https://github.com/yourusername/repo](https://github.com/yourusername/repo)",
-  link: "[https://live-site.com](https://live-site.com)"
+  github: "https://github.com/yourusername/repo",
+  link: "https://live-site.com",
+  image: "/project-screenshot.png",
 }
 ```
+
+### Tech Marquee
+
+Edit the `items` array in `components/Marquee.tsx`.
+
+### Hero Roles
+
+Edit the `roles` array in `components/Hero.tsx`.
