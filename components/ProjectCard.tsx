@@ -11,7 +11,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
-import { useRef } from "react";
 interface ProjectProps {
   index: number;
   title: string;
@@ -31,29 +30,8 @@ export function ProjectCard({
   github,
   image,
 }: ProjectProps) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const onMove = (e: React.MouseEvent) => {
-    const el = ref.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width;
-    const y = (e.clientY - r.top) / r.height;
-    el.style.transform = `perspective(1000px) rotateY(${(x - 0.5) * 8}deg) rotateX(${(0.5 - y) * 8}deg) scale(1.01)`;
-    el.style.setProperty("--gx", `${x * 100}%`);
-    el.style.setProperty("--gy", `${y * 100}%`);
-  };
-  const onLeave = () => {
-    if (ref.current) ref.current.style.transform = "";
-  };
-
   return (
-    <div
-      ref={ref}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      className="tilt-card relative will-change-transform"
-    >
+    <div className="relative transition-transform duration-300 ease-out hover:-translate-y-2">
       <span className="pointer-events-none absolute -top-8 left-2 z-10 select-none font-mono text-6xl font-black text-slate-300/60 dark:text-slate-700/60 md:text-8xl md:-top-12">
         {String(index + 1).padStart(2, "0")}
       </span>
@@ -71,7 +49,7 @@ export function ProjectCard({
               src={image}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover hover:scale-105 transition-all duration-500"
+              className="object-cover"
               priority
             />
           </div>
