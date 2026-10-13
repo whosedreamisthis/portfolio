@@ -11,14 +11,23 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "habit-tracker-id",
-    title: "Habit Tracker", // Or simply 'Habit Tracker'
+    id: "prose-stack-id",
+    title: "ProseStack", // Or simply 'Habit Tracker'
     description:
-      "A modern, AI-powered habit tracking dashboard featuring personalized streak calculations, Google Gemini-driven motivational insights, secure Clerk authentication, and a responsive layout built with Next.js and MongoDB.",
-    tags: ["Next.js 16", "MongoDB", "Google Gemini AI", "Clerk"],
-    github: "https://github.com/whosedreamisthis/habit-tracker", // Replace with your actual repo
-    link: "https://whosedreamisthis-habit-tracker.vercel.app", // Replace with your actual deployment
-    image: "/HabitTracker.png",
+      "A writing workspace for novelists that keeps the manuscript, characters, places, plot lines and research in one place. It has a drag-and-drop outline, a rich-text scene editor with autosave, a free rule-based proofreader, book view and PDF export, and a one-click demo.",
+    tags: [
+      "Next.js 16",
+      "TypeScript",
+      "PostgreSQL",
+      "Prisma",
+      "Clerk",
+      "Tiptap",
+      "Tailwind CSS",
+    ],
+
+    github: "https://github.com/whosedreamisthis/prose-stack", // Replace with your actual repo
+    link: "https://prose-stack.vercel.app", // Replace with your actual deployment
+    image: "/prose-stack.jpg",
   },
   {
     id: "promptly-id",
