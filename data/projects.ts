@@ -18,7 +18,7 @@ export const projects: Project[] = [
     tags: [
       "Next.js 16",
       "TypeScript",
-      "PostgreSQL",
+      "Postgre",
       "Prisma",
       "Clerk",
       "Tiptap",
@@ -47,13 +47,20 @@ export const projects: Project[] = [
     image: "/promptly.jpg",
   },
   {
-    id: "daily-digest-portal",
-    title: "Daily Digest",
+    id: "nudge",
+    title: "Nudge",
     description:
-      "A high-performance news aggregator featuring dynamic category routing, localized search with history management, and native Web Share integration.",
-    tags: ["Next.js 16", "TypeScript", "Tailwind CSS", "Lucide Icons"],
-    github: "https://github.com/whosedreamisthis/daily-digest",
-    link: "https://whosedreamisthis-daily-digest.vercel.app",
-    image: "/daily.png",
+      "Nudge is a full-stack habit tracker built with Next.js, Prisma and Postgres, with Clerk authentication, streak tracking, a journal and focus timer, and Gemini-powered weekly reports, morning motivation and personalized habit suggestions, all with per-feature privacy controls.",
+    tags: [
+      "Next.js 16",
+      "TypeScript",
+      "Google Gemini AI",
+      "Tailwind CSS",
+      "Postgres",
+      "Clerk",
+    ],
+    github: "https://github.com/whosedreamisthis/nudge",
+    link: "https://whosedreamisthis-nudge.vercel.app/",
+    image: "/nudge.png",
   },
 ];
