@@ -27,7 +27,7 @@ export const projects: Project[] = [
 
     github: "https://github.com/whosedreamisthis/prose-stack", // Replace with your actual repo
     link: "https://prose-stack.vercel.app", // Replace with your actual deployment
-    image: "/prose-stack.jpg",
+    image: "/prose-stack-2.png",
   },
   {
     id: "promptly-id",
