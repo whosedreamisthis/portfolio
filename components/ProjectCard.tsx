@@ -1,16 +1,15 @@
 // components/ProjectCard.tsx
 "use client";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
+const pillColors = [
+  "bg-blue-100 text-blue-800 dark:bg-blue-500/20 dark:text-blue-300",
+  "bg-purple-100 text-purple-800 dark:bg-purple-500/20 dark:text-purple-300",
+  "bg-pink-100 text-pink-800 dark:bg-pink-500/20 dark:text-pink-300",
+  "bg-indigo-100 text-indigo-800 dark:bg-indigo-500/20 dark:text-indigo-300",
+  "bg-green-100 text-green-800 dark:bg-green-500/20 dark:text-green-300",
+];
+
 interface ProjectProps {
   index: number;
   title: string;
@@ -31,89 +30,60 @@ export function ProjectCard({
   image,
 }: ProjectProps) {
   return (
-    <div className="relative transition-transform duration-300 ease-out hover:-translate-y-2">
-      <span className="pointer-events-none absolute -top-8 left-2 z-10 select-none font-mono text-6xl font-black text-slate-300/60 dark:text-slate-700/60 md:text-8xl md:-top-12">
-        {String(index + 1).padStart(2, "0")}
-      </span>
-      <div className="bg-white/70 dark:bg-slate-900/80 backdrop-blur-xl border-2 border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-600 ease-in-out shadow-lg overflow-hidden flex flex-col rounded-xl">
-        {/* THE WRAPPER: 
-         - No padding on this div ensures the image can touch the edges.
-         - flex-col on mobile (Image top)
-         - md:flex-row-reverse on desktop (Image right)
-      */}
-        <div className="flex flex-col md:flex-row-reverse items-stretch">
-          {/* IMAGE SECTION - Zero margins, zero padding */}
-          <div className="relative w-full md:w-1/3 shrink-0 aspect-[16/9] md:aspect-auto border-b md:border-b-0 md:border-l border-slate-200 dark:border-slate-800">
-            <Image
-              alt="project image"
-              src={image}
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover"
-              priority
-            />
+    <div className="grid items-center gap-10 md:grid-cols-[15rem_minmax(0,1fr)] md:gap-14">
+      {/* IMAGE: rounded square with a soft glow */}
+      <div className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden rounded-2xl shadow-[0_20px_60px_-10px_rgba(139,92,246,0.35)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_30px_80px_-5px_rgba(139,92,246,0.7)] md:max-w-60">
+        <Image
+          alt={`${title} screenshot`}
+          src={image}
+          fill
+          sizes="(max-width: 768px) 100vw, 40vw"
+          className="object-cover"
+          priority={index === 0}
+        />
+      </div>
+
+      {/* TEXT */}
+      <div>
+        <h3 className="mb-4 text-2xl font-semibold tracking-tight">{title}</h3>
+        <p className="mb-6 select-text leading-relaxed text-slate-600 dark:text-slate-400">
+          {description}
+        </p>
+
+        <div className="mb-6 grid grid-cols-2 gap-6">
+          <div>
+            <p className="mb-1 text-sm font-semibold">Live Demo:</p>
+            <a
+              href={link.startsWith("http") ? link : `https://${link}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-slate-600 hover:text-blue-500 dark:text-slate-400"
+            >
+              <ExternalLink className="h-3.5 w-3.5" /> Visit site
+            </a>
           </div>
-
-          {/* TEXT CONTENT SECTION */}
-          <div className="flex-1 flex flex-col justify-between p-6">
-            <div>
-              <div className="flex justify-between items-start mb-4 gap-4">
-                <h3 className="font-mono text-lg font-bold tracking-tighter uppercase leading-tight">
-                  {title}
-                </h3>
-                <span className="text-[10px] opacity-30 font-light font-mono shrink-0 mt-1">
-                  [REF_ID: {title.slice(0, 3).toUpperCase()}]
-                </span>
-              </div>
-
-              <p className="text-sm text-slate-600 dark:text-slate-400 select-text mb-6">
-                {description}
-              </p>
-
-              <div className="flex flex-col gap-2">
-                <p className="text-[11px] font-mono text-slate-400 uppercase tracking-widest">
-                  Tech Stack:
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-[10px] font-mono rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* BUTTONS SECTION */}
-            <div className="flex gap-3 pt-6 mt-6 border-t border-slate-100 dark:border-slate-800/50 w-full">
-              <Button
-                variant="outline"
-                size="sm"
-                className="transition-all hover:-translate-y-1 flex-1 font-mono text-xs uppercase"
-                asChild
-              >
-                <a href={github} target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-2 h-3 w-3" /> Source
-                </a>
-              </Button>
-              <Button
-                size="sm"
-                className="transition-all hover:-translate-y-1 flex-1 font-mono text-xs uppercase bg-primary hover:bg-primary/90"
-                asChild
-              >
-                <a
-                  href={link.startsWith("http") ? link : `https://${link}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="mr-2 h-3 w-3" /> Live
-                </a>
-              </Button>
-            </div>
+          <div>
+            <p className="mb-1 text-sm font-semibold">Source:</p>
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-slate-600 hover:text-blue-500 dark:text-slate-400"
+            >
+              <Github className="h-3.5 w-3.5" /> GitHub
+            </a>
           </div>
+        </div>
+
+        <div className="flex flex-wrap gap-3">
+          {tags.map((tag, i) => (
+            <span
+              key={tag}
+              className={`rounded-full px-4 py-2 text-sm font-medium ${pillColors[i % pillColors.length]}`}
+            >
+              {tag}
+            </span>
+          ))}
         </div>
       </div>
     </div>
