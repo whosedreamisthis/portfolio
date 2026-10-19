@@ -22,14 +22,21 @@ export const projects: Project[] = [
     image: "/prose-stack-2.png",
   },
   {
-    id: "promptly-id",
-    title: "Promptly",
+    id: "sweater-weather-id",
+    title: "SweaterWeather",
     description:
-      "An AI chat app where replies stream into the UI token by token and conversations are organised into saved notebooks. Includes per-user usage limits and a one-click demo mode, with Clerk handling auth.",
-    tags: ["Next.js 16", "Gemini API", "Streaming", "Prisma", "Clerk"],
-    github: "https://github.com/whosedreamisthis/promptly",
-    link: "https://whosedreamisthis-promptly.vercel.app/",
-    image: "/promptly.jpg",
+      'A fast weather app that answers "what should I wear?" Search any city for current conditions, hourly and 7-day forecasts, air quality and a rule-based outfit suggestion. Save favorite locations, switch units, or use your own location, with live data from Open-Meteo.',
+    tags: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "TanStack Query",
+      "Zustand",
+      "Vitest",
+    ],
+    github: "https://github.com/whosedreamisthis/sweater-weather",
+    link: "https://whosedreamisthis.github.io/sweater-weather/",
+    image: "/sweater-weather.png",
   },
   {
     id: "nudge",
