@@ -1,6 +1,6 @@
 # 📐 Technical Portfolio | Dana Sharon
 
-A engineering-themed developer portfolio built with **Next.js 16**, **React 19**, and **Tailwind CSS v4**. It has an animated hero, a scrolling tech marquee, tilt-effect project cards, and a blueprint-style background that follows the system theme.
+A engineering-themed developer portfolio built with **Next.js 16**, **React 19**, and **Tailwind CSS v4**. It has an animated hero, a scrolling tech marquee, side-by-side project showcases, and a blueprint-style background that follows the system theme.
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38B2AC?style=flat-square&logo=tailwind-css)
@@ -16,11 +16,23 @@ The site mimics a technical drafting board. SVG backgrounds switch between light
 
 -   **Animated Hero:** Typewriter effect cycling through roles.
 -   **Tech Marquee:** Continuously scrolling strip of the tech stack.
--   **Tilt Project Cards:** Interactive cards with a 3D tilt effect.
+-   **Project Showcases:** Image on the left with a glowing hover lift, description, live and source links, and colored tech pills on the right. Stacks on mobile.
 -   **Cursor Glow & Scroll Reveals:** Subtle pointer glow and reveal-on-scroll animations.
 -   **Zero-Flash Dark Mode:** A blocking inline script in the layout applies the saved or system theme before first paint.
 -   **Data-Driven Projects:** Projects are rendered from a single typed array.
 -   **Responsive Layout:** Fluid across all viewport sizes.
+
+---
+
+## 🗂️ Featured Projects
+
+| Project                                                    | What it is                                                        | Stack                                              |
+| ---------------------------------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------- |
+| [ProseStack](https://prose-stack.vercel.app)               | Writing workspace for novelists with a Tiptap editor, drag-and-drop outline and PDF export | Next.js 16, TypeScript, Tiptap, Prisma, Postgres   |
+| [SweaterWeather](https://whosedreamisthis.github.io/sweater-weather/) | Weather app that suggests what to wear, with live Open-Meteo data | React, TypeScript, Vite, TanStack Query, Zustand, Vitest |
+| [Nudge](https://whosedreamisthis-nudge.vercel.app/)        | Habit tracker with Gemini-powered reports and per-feature privacy | Next.js 16, TypeScript, Gemini API, Postgres, Clerk |
+
+Project data lives in `data/projects.ts`.
 
 ---
 
@@ -49,7 +61,7 @@ The site mimics a technical drafting board. SVG backgrounds switch between light
 │   ├── TechnicalBackground.tsx / TechLightBackground.tsx
 │   ├── Hero.tsx             # Typewriter hero
 │   ├── Marquee.tsx          # Scrolling tech strip
-│   ├── ProjectCard.tsx      # Tilt project card
+│   ├── ProjectCard.tsx      # Project showcase row
 │   ├── Reveal.tsx           # Scroll-reveal wrapper
 │   ├── CursorGlow.tsx       # Pointer glow effect
 │   ├── ContactButton.tsx
@@ -101,7 +113,7 @@ The site mimics a technical drafting board. SVG backgrounds switch between light
 
 ### Adding Projects
 
-Add an entry to the `projects` array in `data/projects.ts` and put its screenshot in `public/`. Use a unique string `id`:
+Add an entry to the `projects` array in `data/projects.ts` and put its screenshot in `public/`. Use a unique string `id`. The image is shown as a square, so use a roughly square screenshot. The first five or so `tags` look best, and they cycle through the pill colors. Also add the project to the Featured Projects table above:
 
 ```typescript
 {
